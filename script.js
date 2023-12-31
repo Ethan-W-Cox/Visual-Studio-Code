@@ -2,6 +2,29 @@ const frogContainer = document.getElementById('frog-container');
         const resetButton = document.getElementById('reset-button');
         const lilypadCounter = document.getElementById('lilypad-counter');
 
+        const speedSlider = document.getElementById('speed-slider');
+        const speedValue = document.getElementById('speed-value');
+
+        // Set initial speed
+        let frogSpeed = 1;
+
+        // Event listener for the slider
+        speedSlider.addEventListener('input', () => {
+            frogSpeed = parseInt(speedSlider.value);
+            speedValue.textContent = `Current Speed: ${frogSpeed}`;
+        });
+        
+        const padSlider = document.getElementById('pad-slider');
+        const padValue = document.getElementById('pad-value');
+
+        let padMultiplier = 1;
+
+        padSlider.addEventListener('input', () => {
+            padMultiplier = parseInt(padSlider.value);
+            padValue.textContent = `Lilypad Mulitplier: ${padMultiplier}`;
+        });
+
+
         let isButtonClicked = false;
         let lilypadsEaten = 0;
 
@@ -47,7 +70,7 @@ const frogContainer = document.getElementById('frog-container');
 
         // Function to handle key presses and move the frog
         const handleKeyPress = () => {
-            const step = 5; // Adjust the step size as needed
+            const step = 5 * frogSpeed; // Adjust the step size as needed
             let newLeft = frogContainer.offsetLeft;
             let newTop = frogContainer.offsetTop;
 
@@ -85,7 +108,7 @@ const frogContainer = document.getElementById('frog-container');
 
             // Function to generate random lilypads
             const generateLilypads = () => {
-                const numLilypads = Math.floor(Math.random() * 10) + 1; // Random number between 1 and 5
+                const numLilypads = Math.floor(Math.random() * 10 * padMultiplier) + 1; // Random number between 1 and 5
 
                 for (let i = 0; i < numLilypads; i++) {
                     const lilypad = document.createElement('div');
@@ -162,4 +185,3 @@ const frogContainer = document.getElementById('frog-container');
         function closeModal() {
             modal.style.display = 'none';
         }
-            

@@ -35,16 +35,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #3e95f8;
-            
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            
             border: 2px solid white; 
             border-radius: 2px;
-            
             /*Determines the stacking priority of the modal element */
             z-index: 2;
-
             width: 300px;
             height: 300px;
         }
@@ -95,6 +91,7 @@
             box-shadow: none;
             color: white;
             animation: button 5s infinite;
+            z-index: 2;
         }
 
         @keyframes button {
@@ -126,6 +123,7 @@
             box-shadow: none;
             color: white;
             animation: button 5s infinite;
+            z-index: 2;
         }
 
         #lilypad-counter {
@@ -139,6 +137,7 @@
             border-width: 2px;
             border: 2px solid white;
             padding: 10px;
+            z-index: 2;
         }
     </style>
 </head>
@@ -153,7 +152,18 @@
             <!-- Your modal content goes here -->
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 style="text-align: center;">SETTINGS</h2>
-            <p>This is your modal content.</p>
+
+            <div class="slider-container">
+                <label for="speed-slider">Frog Speed:</label>
+                <input type="range" id="speed-slider" min="1" max="10" value="1">
+                <p id="speed-value">Current Speed: 1</p>
+            </div>
+    
+            <div class="slider-container">
+                <label for="pad-slider">Lilypads:</label>
+                <input type="range" id="pad-slider" min="1" max="10" value="1">
+                <p id="pad-value">Lilypads Mulitplier: 1</p>
+            </div>
         </div>
     </div>
 
