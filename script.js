@@ -138,7 +138,6 @@ const frogContainer = document.getElementById('frog-container');
             generateLilypads();
 
             // Function to check for frog-lilypad collisions
-            // Function to check for frog-lilypad collisions
             const checkCollisions = () => {
                 const lilypads = document.querySelectorAll('.lilypad');
 
@@ -163,12 +162,14 @@ const frogContainer = document.getElementById('frog-container');
                         lilypadCounter.textContent = `LILYPADS EATEN: ${lilypadsEaten}`;
                         
                         // Change the frog image when a lilypad is eaten
+                        frogContainer.style.animation = 'none';
                         frogContainer.style.backgroundImage = 'url("frogeating.png")';
 
                         // Reset the frog image after a short delay
                         setTimeout(() => {
+                            frogContainer.style.animation = 'blink 2s infinite';
                             frogContainer.style.backgroundImage = 'url("frog.png")';
-                        }, 300); // Adjust the delay as needed
+                        }, 100); // Adjust the delay as needed
 
                         
                     }
