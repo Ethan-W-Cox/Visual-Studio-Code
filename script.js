@@ -25,6 +25,15 @@ const frogContainer = document.getElementById('frog-container');
         });
 
 
+        const colorSlider = document.getElementById('color-slider');
+        colorSlider.addEventListener('input', () => {
+            const hue = colorSlider.value; // Get the hue value from the slider
+
+            // Update the frog's color using HSL color representation
+            frogContainer.style.filter = `hue-rotate(${hue}deg)`;
+        });
+
+
         let isButtonClicked = false;
         let lilypadsEaten = 0;
 
